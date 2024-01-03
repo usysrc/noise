@@ -20,6 +20,7 @@ func main() {
 			}
 		}
 	}
+	t := 0
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 
@@ -29,7 +30,10 @@ func main() {
 				rl.DrawRectangle(int32(i), int32(j), 1, 1, cols[j*600+i])
 			}
 		}
-
+		if t == 0 {
+			rl.TakeScreenshot("screen.png")
+		}
 		rl.EndDrawing()
+		t++
 	}
 }
